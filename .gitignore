@@ -140,3 +140,6 @@ docs/api
 events.out.tfevents*
 pretrained
 YOLOX_outputs
+
+# other
+clip*.mp4
