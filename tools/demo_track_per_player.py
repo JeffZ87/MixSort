@@ -10,7 +10,7 @@ from loguru import logger
 from yolox.data.data_augment import preproc
 from yolox.exp import get_exp
 from yolox.utils import fuse_model, get_model_info, postprocess
-from yolox.utils.visualize import plot_tracking
+from yolox.utils.visualize import plot_mask_tracking, plot_tracking
 from yolox.byte_tracker.byte_tracker import BYTETracker
 from yolox.tracking_utils.timer import Timer
 
@@ -361,7 +361,7 @@ def per_player_demo(vis_folder, track_folder, args):
                             float(player_track_attr[4]),
                             float(player_track_attr[5])]
                     timer.toc()
-                    online_im = plot_tracking(
+                    online_im = plot_mask_tracking(
                         frame, [tlwh], [player_id], frame_id=frame_id + 1, fps=1. / timer.average_time
                     )
                     line = player_track_file.readline()
